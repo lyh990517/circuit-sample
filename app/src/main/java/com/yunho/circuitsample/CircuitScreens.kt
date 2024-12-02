@@ -7,17 +7,29 @@ sealed interface CircuitScreens {
 
     sealed interface HomeGraph : CircuitScreens {
         @Parcelize
-        data object NestedScreen1 : HomeGraph, Screen
+        data class RootScreen(
+            val name: String = "root",
+            val navigationStack: List<String> = listOf()
+        ) : HomeGraph, Screen
 
         @Parcelize
-        data object NestedScreen2 : HomeGraph, Screen
+        data class Screen1(
+            val name: String = "screen1",
+            val navigationStack: List<String>
+        ) : HomeGraph, Screen
 
         sealed interface NestedGraph : HomeGraph {
             @Parcelize
-            data object NestedScreen3 : NestedGraph, Screen
+            data class NestedScreen3(
+                val name: String,
+                val navigationStack: List<String>
+            ) : NestedGraph, Screen
 
             @Parcelize
-            data object NestedScreen4 : NestedGraph, Screen
+            data class NestedScreen4(
+                val name: String,
+                val navigationStack: List<String>
+            ) : NestedGraph, Screen
         }
     }
 }
