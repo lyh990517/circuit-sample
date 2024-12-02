@@ -20,10 +20,10 @@ import androidx.compose.ui.unit.dp
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.foundation.CircuitContent
 import com.slack.circuit.runtime.screen.Screen
-import com.yunho.circuitsample.CircuitScreens
+import com.yunho.circuitsample.RootScreen
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-@CircuitInject(CircuitScreens.HomeGraph.RootScreen::class, ActivityRetainedComponent::class)
+@CircuitInject(RootScreen::class, ActivityRetainedComponent::class)
 @Composable
 fun RootScreen(
     rootUiState: RootUiState,
@@ -31,11 +31,11 @@ fun RootScreen(
 ) {
     val screens = remember {
         listOf(
-            CircuitScreens.HomeGraph.Screen1(),
-            CircuitScreens.HomeGraph.Screen2()
+            RootScreen.RootGraph.Screen1(),
+            RootScreen.RootGraph.Screen2(),
         )
     }
-    var currentScreen by remember { mutableStateOf<Screen>(CircuitScreens.HomeGraph.Screen1()) }
+    var currentScreen by remember { mutableStateOf<Screen>(RootScreen.RootGraph.Screen1()) }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),

@@ -4,14 +4,14 @@ import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
-import com.yunho.circuitsample.CircuitScreens
+import com.yunho.circuitsample.RootScreen
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
 
 class Screen2Presenter @AssistedInject constructor(
-    @Assisted private val screen: CircuitScreens.HomeGraph.Screen2,
+    @Assisted private val screen: RootScreen.RootGraph.Screen2,
     @Assisted private val navigator: Navigator
 ) : Presenter<Screen2UiState> {
     @Composable
@@ -25,11 +25,11 @@ class Screen2Presenter @AssistedInject constructor(
         }
     }
 
-    @CircuitInject(CircuitScreens.HomeGraph.Screen2::class, ActivityRetainedComponent::class)
+    @CircuitInject(RootScreen.RootGraph.Screen2::class, ActivityRetainedComponent::class)
     @AssistedFactory
     fun interface Factory {
         fun create(
-            screen2: CircuitScreens.HomeGraph.Screen2,
+            screen2: RootScreen.RootGraph.Screen2,
             navigator: Navigator
         ): Screen2Presenter
     }

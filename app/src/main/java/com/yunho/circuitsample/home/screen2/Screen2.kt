@@ -10,10 +10,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import com.slack.circuit.codegen.annotations.CircuitInject
-import com.yunho.circuitsample.CircuitScreens
+import com.yunho.circuitsample.RootScreen
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-@CircuitInject(CircuitScreens.HomeGraph.Screen2::class, ActivityRetainedComponent::class)
+@CircuitInject(RootScreen.RootGraph.Screen2::class, ActivityRetainedComponent::class)
 @Composable
 fun Screen2(
     screen2UiState: Screen2UiState,
