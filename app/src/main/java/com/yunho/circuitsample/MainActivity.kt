@@ -33,6 +33,7 @@ class MainActivity : ComponentActivity() {
             CircuitSampleTheme {
                 val backStack = rememberSaveableBackStack(root = CircuitScreens.HomeScreen)
                 val navigator = rememberCircuitNavigator(backStack)
+
                 CircuitCompositionLocals(circuit) {
                     NavigableCircuitContent(
                         navigator = navigator,
