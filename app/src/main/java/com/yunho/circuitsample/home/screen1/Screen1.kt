@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.nested2
+package com.yunho.circuitsample.home.screen1
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

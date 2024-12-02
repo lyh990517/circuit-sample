@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.nested1
+package com.yunho.circuitsample.home.root
 
 import com.slack.circuit.runtime.CircuitUiState
 

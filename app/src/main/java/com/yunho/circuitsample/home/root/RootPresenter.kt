@@ -1,7 +1,8 @@
-package com.yunho.circuitsample.home.nested1
+package com.yunho.circuitsample.home.root
 
 import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
+import com.slack.circuit.foundation.NavEvent
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import com.yunho.circuitsample.CircuitScreens
@@ -18,12 +19,28 @@ class RootPresenter @AssistedInject constructor(
     override fun present(): RootUiState {
         return RootUiState(screen.name) { event ->
             when (event) {
-                RootEvent.GoToNext -> {
+                RootEvent.GoToScreen1 -> {
                     navigator.goTo(
                         CircuitScreens.HomeGraph.Screen1(
                             navigationStack = screen.navigationStack + screen.name
                         )
                     )
+                }
+
+                RootEvent.GoToScreen2 -> {
+                    navigator.goTo(
+                        CircuitScreens.HomeGraph.Screen1(
+                            navigationStack = screen.navigationStack + screen.name
+                        )
+                    )
+                }
+
+                is RootEvent.NestedNavEvent -> {
+                    when (event.navEvent) {
+                        is NavEvent.GoTo -> {}
+                        is NavEvent.Pop -> {}
+                        is NavEvent.ResetRoot -> {}
+                    }
                 }
             }
         }
