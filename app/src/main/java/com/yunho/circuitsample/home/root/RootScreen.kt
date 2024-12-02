@@ -12,14 +12,14 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.foundation.CircuitContent
-import com.slack.circuit.foundation.NavEvent
+import com.slack.circuit.runtime.screen.Screen
 import com.yunho.circuitsample.CircuitScreens
 import dagger.hilt.android.components.ActivityRetainedComponent
 
@@ -29,7 +29,7 @@ fun RootScreen(
     rootUiState: RootUiState,
     modifier: Modifier = Modifier
 ) {
-    var selected by remember { mutableIntStateOf(1) }
+    var currentScreen by remember { mutableStateOf<Screen>(CircuitScreens.HomeGraph.Screen1()) }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -40,20 +40,18 @@ fun RootScreen(
                     .height(100.dp)
             ) {
                 NavigationBarItem(
-                    selected = selected == 1,
+                    selected = currentScreen is CircuitScreens.HomeGraph.Screen1,
                     onClick = {
-                        rootUiState.eventSink(RootEvent.NestedNavEvent(NavEvent.GoTo(screen = CircuitScreens.HomeGraph.Screen1())))
-                        selected = 1
+                        currentScreen = CircuitScreens.HomeGraph.Screen1()
                     },
                     icon = {
                         Icon(imageVector = Icons.Default.PlayArrow, "")
                     }
                 )
                 NavigationBarItem(
-                    selected = selected == 2,
+                    selected = currentScreen is CircuitScreens.HomeGraph.Screen2,
                     onClick = {
-                        rootUiState.eventSink(RootEvent.NestedNavEvent(NavEvent.GoTo(screen = CircuitScreens.HomeGraph.Screen2())))
-                        selected = 2
+                        currentScreen = CircuitScreens.HomeGraph.Screen2()
                     },
                     icon = {
                         Icon(imageVector = Icons.Default.PlayArrow, "2")
@@ -63,7 +61,7 @@ fun RootScreen(
         }
     ) { paddingValues ->
         CircuitContent(
-            screen = CircuitScreens.HomeGraph.Screen1(navigationStack = listOf()),
+            screen = currentScreen,
             modifier = modifier
                 .fillMaxSize()
                 .padding(paddingValues),
