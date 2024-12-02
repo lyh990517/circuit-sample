@@ -1,3 +1,5 @@
+import com.google.devtools.ksp.gradle.KspExtension
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -44,6 +46,9 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    extensions.configure<KspExtension> {
+        arg("circuit.codegen.mode", "hilt")
     }
 }
 
