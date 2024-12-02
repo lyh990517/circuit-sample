@@ -1,9 +1,7 @@
-package com.yunho.circuitsample.home.root
+package com.yunho.circuitsample.home.screen2
 
 import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
-import com.slack.circuit.foundation.NavEvent
-import com.slack.circuit.foundation.onNavEvent
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import com.yunho.circuitsample.CircuitScreens
@@ -12,25 +10,27 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-class RootPresenter @AssistedInject constructor(
-    @Assisted private val screen: CircuitScreens.HomeGraph.RootScreen,
+class Screen2Presenter @AssistedInject constructor(
+    @Assisted private val screen: CircuitScreens.HomeGraph.Screen2,
     @Assisted private val navigator: Navigator
-) : Presenter<RootUiState> {
+) : Presenter<Screen2UiState> {
     @Composable
-    override fun present(): RootUiState {
-        return RootUiState(screen.name) { event ->
+    override fun present(): Screen2UiState {
+        return Screen2UiState(
+            navigationStack = listOf(screen.name) + screen.navigationStack
+        ) { event ->
             when (event) {
-                is RootEvent.NestedNavEvent -> navigator.onNavEvent(event.navEvent)
+                Screen2Event.GoToNext -> {}
             }
         }
     }
 
-    @CircuitInject(CircuitScreens.HomeGraph.RootScreen::class, ActivityRetainedComponent::class)
+    @CircuitInject(CircuitScreens.HomeGraph.Screen2::class, ActivityRetainedComponent::class)
     @AssistedFactory
     fun interface Factory {
         fun create(
-            screen: CircuitScreens.HomeGraph.RootScreen,
+            screen2: CircuitScreens.HomeGraph.Screen2,
             navigator: Navigator
-        ): RootPresenter
+        ): Screen2Presenter
     }
 }

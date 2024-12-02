@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.foundation.CircuitContent
+import com.slack.circuit.foundation.NavEvent
 import com.yunho.circuitsample.CircuitScreens
 import dagger.hilt.android.components.ActivityRetainedComponent
 
@@ -41,7 +42,7 @@ fun RootScreen(
                 NavigationBarItem(
                     selected = selected == 1,
                     onClick = {
-                        rootUiState.eventSink(RootEvent.GoToScreen1)
+                        rootUiState.eventSink(RootEvent.NestedNavEvent(NavEvent.GoTo(screen = CircuitScreens.HomeGraph.Screen1())))
                         selected = 1
                     },
                     icon = {
@@ -51,7 +52,7 @@ fun RootScreen(
                 NavigationBarItem(
                     selected = selected == 2,
                     onClick = {
-                        rootUiState.eventSink(RootEvent.GoToScreen2)
+                        rootUiState.eventSink(RootEvent.NestedNavEvent(NavEvent.GoTo(screen = CircuitScreens.HomeGraph.Screen2())))
                         selected = 2
                     },
                     icon = {
