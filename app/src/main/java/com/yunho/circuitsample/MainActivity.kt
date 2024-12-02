@@ -31,7 +31,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CircuitSampleTheme {
-                val backStack = rememberSaveableBackStack(root = CircuitScreens.HomeScreen)
+                val backStack =
+                    rememberSaveableBackStack(root = CircuitScreens.HomeGraph.NestedScreen1)
                 val navigator = rememberCircuitNavigator(backStack)
 
                 CircuitCompositionLocals(circuit) {

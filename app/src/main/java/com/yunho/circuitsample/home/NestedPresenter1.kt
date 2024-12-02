@@ -10,23 +10,23 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-class HomePresenter @AssistedInject constructor(
+class NestedPresenter1 @AssistedInject constructor(
     @Assisted private val navigator: Navigator
-) : Presenter<HomeUiState> {
+) : Presenter<NestedUiState1> {
     @Composable
-    override fun present(): HomeUiState {
-        return HomeUiState { event ->
+    override fun present(): NestedUiState1 {
+        return NestedUiState1 { event ->
             when (event) {
-                HomeEvent.Go -> {}
+                NestedEvent1.GoToNext -> {}
             }
         }
     }
 
-    @CircuitInject(CircuitScreens.HomeScreen::class, ActivityRetainedComponent::class)
+    @CircuitInject(CircuitScreens.HomeGraph.NestedScreen1::class, ActivityRetainedComponent::class)
     @AssistedFactory
     fun interface Factory {
         fun create(
             navigator: Navigator
-        ): HomePresenter
+        ): NestedPresenter1
     }
 }

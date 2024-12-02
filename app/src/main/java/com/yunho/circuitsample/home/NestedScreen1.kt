@@ -10,10 +10,10 @@ import com.slack.circuit.codegen.annotations.CircuitInject
 import com.yunho.circuitsample.CircuitScreens
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-@CircuitInject(CircuitScreens.HomeScreen::class, ActivityRetainedComponent::class)
+@CircuitInject(CircuitScreens.HomeGraph.NestedScreen1::class, ActivityRetainedComponent::class)
 @Composable
-fun HomeScreen(
-    homeUiState: HomeUiState,
+fun NestedScreen1(
+    nestedUiState1: NestedUiState1,
     modifier: Modifier = Modifier
 ) {
     Box(modifier = modifier.fillMaxSize()) {
