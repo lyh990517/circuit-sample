@@ -12,12 +12,12 @@ plugins {
 
 android {
     namespace = "com.yunho.circuitsample"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.yunho.circuitsample"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -65,7 +65,9 @@ dependencies {
 
     //circuit
     implementation(libs.bundles.circuit)
+    ksp(libs.circuit.codegen.ksp)
 
     //hilt
-    implementation(libs.bundles.hilt)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.android.compiler)
 }
