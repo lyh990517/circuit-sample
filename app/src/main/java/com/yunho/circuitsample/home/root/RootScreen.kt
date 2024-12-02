@@ -29,6 +29,12 @@ fun RootScreen(
     rootUiState: RootUiState,
     modifier: Modifier = Modifier
 ) {
+    val screens = remember {
+        listOf(
+            CircuitScreens.HomeGraph.Screen1(),
+            CircuitScreens.HomeGraph.Screen2()
+        )
+    }
     var currentScreen by remember { mutableStateOf<Screen>(CircuitScreens.HomeGraph.Screen1()) }
 
     Scaffold(
@@ -39,24 +45,13 @@ fun RootScreen(
                     .fillMaxWidth()
                     .height(100.dp)
             ) {
-                NavigationBarItem(
-                    selected = currentScreen is CircuitScreens.HomeGraph.Screen1,
-                    onClick = {
-                        currentScreen = CircuitScreens.HomeGraph.Screen1()
-                    },
-                    icon = {
-                        Icon(imageVector = Icons.Default.PlayArrow, "")
-                    }
-                )
-                NavigationBarItem(
-                    selected = currentScreen is CircuitScreens.HomeGraph.Screen2,
-                    onClick = {
-                        currentScreen = CircuitScreens.HomeGraph.Screen2()
-                    },
-                    icon = {
-                        Icon(imageVector = Icons.Default.PlayArrow, "2")
-                    }
-                )
+                screens.forEach { screen ->
+                    NavigationBarItem(
+                        selected = screen == currentScreen,
+                        onClick = { currentScreen = screen },
+                        icon = { Icon(imageVector = Icons.Default.PlayArrow, "") }
+                    )
+                }
             }
         }
     ) { paddingValues ->
