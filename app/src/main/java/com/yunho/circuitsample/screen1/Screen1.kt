@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.screen1
+package com.yunho.circuitsample.screen1
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -11,7 +11,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.yunho.circuitsample.Screen1
-import com.yunho.circuitsample.home.component.NavigationStack
+import com.yunho.circuitsample.component.NavigationStack
 import dagger.hilt.android.components.ActivityRetainedComponent
 
 @CircuitInject(Screen1::class, ActivityRetainedComponent::class)

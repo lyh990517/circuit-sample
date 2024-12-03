@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.root
+package com.yunho.circuitsample.root
 
 import com.slack.circuit.runtime.CircuitUiState
 import com.slack.circuit.runtime.screen.Screen

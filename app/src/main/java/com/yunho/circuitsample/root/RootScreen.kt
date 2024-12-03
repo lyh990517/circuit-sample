@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.root
+package com.yunho.circuitsample.root
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth

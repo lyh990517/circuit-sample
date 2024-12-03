@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.screen1
+package com.yunho.circuitsample.screen1
 
 import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject

@@ -1,9 +1,9 @@
-package com.yunho.circuitsample.home.screen1
+package com.yunho.circuitsample.screen4
 
 import com.slack.circuit.runtime.CircuitUiState
 import com.slack.circuit.runtime.screen.Screen
 
-data class Screen1UiState(
+data class Screen4UiState(
     val navigationStack: List<Screen>,
-    val eventSink: (Screen1Event) -> Unit
+    val eventSink: (Screen4Event) -> Unit
 ) : CircuitUiState

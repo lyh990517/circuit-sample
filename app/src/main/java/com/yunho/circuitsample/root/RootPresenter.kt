@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.root
+package com.yunho.circuitsample.root
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
