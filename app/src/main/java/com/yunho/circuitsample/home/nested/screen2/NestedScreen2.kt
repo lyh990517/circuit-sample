@@ -1,4 +1,4 @@
-package com.yunho.circuitsample.home.screen1
+package com.yunho.circuitsample.home.nested.screen2
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,10 +13,13 @@ import com.slack.circuit.codegen.annotations.CircuitInject
 import com.yunho.circuitsample.RootScreen
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-@CircuitInject(RootScreen.RootGraph.Screen1::class, ActivityRetainedComponent::class)
+@CircuitInject(
+    RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen2::class,
+    ActivityRetainedComponent::class
+)
 @Composable
-fun Screen1(
-    screen1UiState: Screen1UiState,
+fun NestedScreen2(
+    nestedScreen2UiState: NestedScreen2UiState,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -25,21 +28,16 @@ fun Screen1(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text("NavigationStack", fontSize = 25.sp)
-        screen1UiState.navigationStack.forEach { stack ->
+        nestedScreen2UiState.navigationStack.forEach { stack ->
             Text(
                 modifier = Modifier,
                 text = stack.toString()
             )
         }
         Button(onClick = {
-            screen1UiState.eventSink(Screen1Event.GoToNestedScreen1)
+            nestedScreen2UiState.eventSink(NestedScreen2Event.GoToNext)
         }) {
-            Text("go to nested screen1")
-        }
-        Button(onClick = {
-            screen1UiState.eventSink(Screen1Event.GoToNestedScreen2)
-        }) {
-            Text("go to nested screen2")
+            Text("go to next")
         }
     }
 }

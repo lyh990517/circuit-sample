@@ -17,10 +17,11 @@ class Screen1Presenter @AssistedInject constructor(
     @Composable
     override fun present(): Screen1UiState {
         return Screen1UiState(
-            navigationStack = listOf(screen.name) + screen.navigationStack
+            navigationStack = navigator.peekBackStack()
         ) { event ->
             when (event) {
-                ScreenEvent.GoToNext -> {}
+                Screen1Event.GoToNestedScreen1 -> {}
+                Screen1Event.GoToNestedScreen2 -> {}
             }
         }
     }

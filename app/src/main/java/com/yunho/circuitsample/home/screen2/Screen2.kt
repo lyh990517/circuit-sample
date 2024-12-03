@@ -28,7 +28,7 @@ fun Screen2(
         screen2UiState.navigationStack.forEach { stack ->
             Text(
                 modifier = Modifier,
-                text = stack
+                text = stack.toString()
             )
         }
         Button(onClick = {
