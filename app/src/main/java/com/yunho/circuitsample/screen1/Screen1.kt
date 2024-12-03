@@ -39,7 +39,7 @@ fun Screen1(
             Button(onClick = {
                 screen1UiState.eventSink(Screen1Event.GoToScreen4)
             }) {
-                Text("go to screen3")
+                Text("go to screen4")
             }
         }
     }
