@@ -1,10 +1,12 @@
 package com.yunho.circuitsample.home.screen1
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import com.yunho.circuitsample.RootScreen
+import com.yunho.circuitsample.home.nested.screen1.NestedScreen1Event
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -20,8 +22,13 @@ class Screen1Presenter @AssistedInject constructor(
             navigationStack = navigator.peekBackStack()
         ) { event ->
             when (event) {
-                Screen1Event.GoToNestedScreen1 -> {}
-                Screen1Event.GoToNestedScreen2 -> {}
+                Screen1Event.GoToNestedScreen1 -> {
+                    navigator.goTo(RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen1())
+                }
+
+                Screen1Event.GoToNestedScreen2 -> {
+                    navigator.goTo(RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen2())
+                }
             }
         }
     }
