@@ -1,10 +1,17 @@
 package com.yunho.circuitsample.screen6
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.slack.circuit.codegen.annotations.CircuitInject
+import com.slack.circuit.foundation.onNavEvent
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
+import com.slack.circuit.runtime.screen.Screen
 import com.yunho.circuitsample.Screen6
+import com.yunho.circuitsample.Screen7
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -16,11 +23,15 @@ class Screen6Presenter @AssistedInject constructor(
 ) : Presenter<Screen6UiState> {
     @Composable
     override fun present(): Screen6UiState {
+        var displayedScreen by remember { mutableStateOf<Screen>(Screen7()) }
+
         return Screen6UiState(
+            displayedScreen = displayedScreen,
             navigationStack = navigator.peekBackStack()
         ) { event ->
             when (event) {
-                else -> {}
+                is Screen6Event.ChangeScreen -> displayedScreen = event.screen
+                is Screen6Event.NestedNavEvent -> navigator.onNavEvent(event.navEvent)
             }
         }
     }

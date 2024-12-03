@@ -37,3 +37,8 @@ data class Screen5(
 data class Screen6(
     val name: String = "screen6",
 ) : Screen
+
+@Parcelize
+data class Screen7(
+    val name: String = "screen7",
+) : Screen
