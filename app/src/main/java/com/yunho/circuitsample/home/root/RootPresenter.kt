@@ -11,6 +11,7 @@ import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import com.slack.circuit.runtime.screen.Screen
 import com.yunho.circuitsample.RootScreen
+import com.yunho.circuitsample.Screen1
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -21,7 +22,7 @@ class RootPresenter @AssistedInject constructor(
 ) : Presenter<RootUiState> {
     @Composable
     override fun present(): RootUiState {
-        var displayedScreen by remember { mutableStateOf<Screen>(RootScreen.Screen1()) }
+        var displayedScreen by remember { mutableStateOf<Screen>(Screen1()) }
 
         return RootUiState(displayedScreen = displayedScreen) { event ->
             when (event) {

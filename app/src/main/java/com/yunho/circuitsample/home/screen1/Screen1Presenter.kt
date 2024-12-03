@@ -4,14 +4,16 @@ import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
-import com.yunho.circuitsample.RootScreen
+import com.yunho.circuitsample.Screen1
+import com.yunho.circuitsample.Screen3
+import com.yunho.circuitsample.Screen4
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
 
 class Screen1Presenter @AssistedInject constructor(
-    @Assisted private val screen: RootScreen.Screen1,
+    @Assisted private val screen: Screen1,
     @Assisted private val navigator: Navigator
 ) : Presenter<Screen1UiState> {
     @Composable
@@ -20,22 +22,22 @@ class Screen1Presenter @AssistedInject constructor(
             navigationStack = navigator.peekBackStack()
         ) { event ->
             when (event) {
-                Screen1Event.GoToNestedScreen1 -> {
-                    navigator.goTo(RootScreen.Screen1.NestedScreen1())
+                Screen1Event.GoToScreen3 -> {
+                    navigator.goTo(Screen3())
                 }
 
-                Screen1Event.GoToNestedScreen2 -> {
-                    navigator.goTo(RootScreen.Screen1.NestedScreen2())
+                Screen1Event.GoToScreen4 -> {
+                    navigator.goTo(Screen4())
                 }
             }
         }
     }
 
-    @CircuitInject(RootScreen.Screen1::class, ActivityRetainedComponent::class)
+    @CircuitInject(Screen1::class, ActivityRetainedComponent::class)
     @AssistedFactory
     fun interface Factory {
         fun create(
-            screen2: RootScreen.Screen1,
+            screen2: Screen1,
             navigator: Navigator
         ): Screen1Presenter
     }

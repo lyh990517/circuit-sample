@@ -1,40 +1,39 @@
-package com.yunho.circuitsample.home.nested.screen1
+package com.yunho.circuitsample.home.screen3
 
 import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
-import com.yunho.circuitsample.RootScreen
+import com.yunho.circuitsample.Screen3
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-class NestedScreen1Presenter @AssistedInject constructor(
-    @Assisted private val screen: RootScreen.Screen1.NestedScreen1,
+class Screen3Presenter @AssistedInject constructor(
+    @Assisted private val screen: Screen3,
     @Assisted private val navigator: Navigator
-) : Presenter<NestedScreen1UiState> {
+) : Presenter<Screen3UiState> {
     @Composable
-    override fun present(): NestedScreen1UiState {
-        return NestedScreen1UiState(
+    override fun present(): Screen3UiState {
+        return Screen3UiState(
             navigationStack = navigator.peekBackStack()
         ) { event ->
             when (event) {
-                NestedScreen1Event.GoToNestedScreen1 -> {}
-                NestedScreen1Event.GoToNestedScreen2 -> {}
+                else -> {}
             }
         }
     }
 
     @CircuitInject(
-        RootScreen.Screen1.NestedScreen1::class,
+        Screen3::class,
         ActivityRetainedComponent::class
     )
     @AssistedFactory
     fun interface Factory {
         fun create(
-            screen: RootScreen.Screen1.NestedScreen1,
+            screen: Screen3,
             navigator: Navigator
-        ): NestedScreen1Presenter
+        ): Screen3Presenter
     }
 }

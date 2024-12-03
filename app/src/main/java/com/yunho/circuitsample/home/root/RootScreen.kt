@@ -17,6 +17,8 @@ import androidx.compose.ui.unit.dp
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.foundation.CircuitContent
 import com.yunho.circuitsample.RootScreen
+import com.yunho.circuitsample.Screen1
+import com.yunho.circuitsample.Screen2
 import dagger.hilt.android.components.ActivityRetainedComponent
 
 @CircuitInject(RootScreen::class, ActivityRetainedComponent::class)
@@ -27,8 +29,8 @@ fun RootScreen(
 ) {
     val screens = remember {
         listOf(
-            RootScreen.Screen1(),
-            RootScreen.Screen2(),
+            Screen1(),
+            Screen2(),
         )
     }
 

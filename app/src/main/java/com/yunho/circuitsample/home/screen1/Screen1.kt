@@ -10,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.slack.circuit.codegen.annotations.CircuitInject
-import com.yunho.circuitsample.RootScreen
+import com.yunho.circuitsample.Screen1
 import com.yunho.circuitsample.home.component.NavigationStack
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-@CircuitInject(RootScreen.Screen1::class, ActivityRetainedComponent::class)
+@CircuitInject(Screen1::class, ActivityRetainedComponent::class)
 @Composable
 fun Screen1(
     screen1UiState: Screen1UiState,
@@ -32,14 +32,14 @@ fun Screen1(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Button(onClick = {
-                screen1UiState.eventSink(Screen1Event.GoToNestedScreen1)
+                screen1UiState.eventSink(Screen1Event.GoToScreen3)
             }) {
-                Text("go to nested screen1")
+                Text("go to screen3")
             }
             Button(onClick = {
-                screen1UiState.eventSink(Screen1Event.GoToNestedScreen2)
+                screen1UiState.eventSink(Screen1Event.GoToScreen4)
             }) {
-                Text("go to nested screen2")
+                Text("go to screen3")
             }
         }
     }
