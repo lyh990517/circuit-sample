@@ -18,6 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.foundation.CircuitContent
 import com.yunho.circuitsample.Screen2
@@ -50,7 +51,7 @@ fun Screen4(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Nested Screen")
+            Text("Nested Screen in Screen4", fontSize = 10.sp)
             CircuitContent(
                 screen = screen4UiState.displayedScreen,
                 modifier = Modifier

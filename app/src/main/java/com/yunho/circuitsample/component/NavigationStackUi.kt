@@ -16,6 +16,7 @@ import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.slack.circuit.runtime.screen.Screen
 
 @Composable
@@ -52,6 +53,6 @@ fun NavigationStack(
                 }
             }
         }
-        Text("navigation stack")
+        Text("navigation stack", fontSize = 10.sp)
     }
 }
