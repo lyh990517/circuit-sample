@@ -31,11 +31,11 @@ fun RootScreen(
 ) {
     val screens = remember {
         listOf(
-            RootScreen.RootGraph.Screen1(),
-            RootScreen.RootGraph.Screen2(),
+            RootScreen.Screen1(),
+            RootScreen.Screen2(),
         )
     }
-    var currentScreen by remember { mutableStateOf<Screen>(RootScreen.RootGraph.Screen1()) }
+    var currentScreen by remember { mutableStateOf<Screen>(RootScreen.Screen1()) }
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),

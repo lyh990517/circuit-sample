@@ -13,7 +13,7 @@ import com.slack.circuit.codegen.annotations.CircuitInject
 import com.yunho.circuitsample.RootScreen
 import dagger.hilt.android.components.ActivityRetainedComponent
 
-@CircuitInject(RootScreen.RootGraph.Screen2::class, ActivityRetainedComponent::class)
+@CircuitInject(RootScreen.Screen2::class, ActivityRetainedComponent::class)
 @Composable
 fun Screen2(
     screen2UiState: Screen2UiState,

@@ -12,7 +12,7 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
 
 class NestedScreen2Presenter @AssistedInject constructor(
-    @Assisted private val screen: RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen2,
+    @Assisted private val screen: RootScreen.Screen1.NestedScreen2,
     @Assisted private val navigator: Navigator
 ) : Presenter<NestedScreen2UiState> {
     @Composable
@@ -27,13 +27,13 @@ class NestedScreen2Presenter @AssistedInject constructor(
     }
 
     @CircuitInject(
-        RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen2::class,
+        RootScreen.Screen1.NestedScreen2::class,
         ActivityRetainedComponent::class
     )
     @AssistedFactory
     fun interface Factory {
         fun create(
-            screen: RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen2,
+            screen: RootScreen.Screen1.NestedScreen2,
             navigator: Navigator
         ): NestedScreen2Presenter
     }

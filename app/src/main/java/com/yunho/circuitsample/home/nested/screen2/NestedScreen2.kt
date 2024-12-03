@@ -14,7 +14,7 @@ import com.yunho.circuitsample.RootScreen
 import dagger.hilt.android.components.ActivityRetainedComponent
 
 @CircuitInject(
-    RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen2::class,
+    RootScreen.Screen1.NestedScreen2::class,
     ActivityRetainedComponent::class
 )
 @Composable

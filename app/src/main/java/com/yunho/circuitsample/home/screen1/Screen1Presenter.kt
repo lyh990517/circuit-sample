@@ -13,7 +13,7 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.android.components.ActivityRetainedComponent
 
 class Screen1Presenter @AssistedInject constructor(
-    @Assisted private val screen: RootScreen.RootGraph.Screen1,
+    @Assisted private val screen: RootScreen.Screen1,
     @Assisted private val navigator: Navigator
 ) : Presenter<Screen1UiState> {
     @Composable
@@ -23,21 +23,21 @@ class Screen1Presenter @AssistedInject constructor(
         ) { event ->
             when (event) {
                 Screen1Event.GoToNestedScreen1 -> {
-                    navigator.goTo(RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen1())
+                    navigator.goTo(RootScreen.Screen1.NestedScreen1())
                 }
 
                 Screen1Event.GoToNestedScreen2 -> {
-                    navigator.goTo(RootScreen.RootGraph.Screen1.Screen1Graph.NestedScreen2())
+                    navigator.goTo(RootScreen.Screen1.NestedScreen2())
                 }
             }
         }
     }
 
-    @CircuitInject(RootScreen.RootGraph.Screen1::class, ActivityRetainedComponent::class)
+    @CircuitInject(RootScreen.Screen1::class, ActivityRetainedComponent::class)
     @AssistedFactory
     fun interface Factory {
         fun create(
-            screen2: RootScreen.RootGraph.Screen1,
+            screen2: RootScreen.Screen1,
             navigator: Navigator
         ): Screen1Presenter
     }
