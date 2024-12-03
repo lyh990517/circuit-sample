@@ -4,6 +4,7 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,11 +27,6 @@ fun Screen3(
     }
 
     Box(modifier = modifier.fillMaxSize()) {
-        NavigationStack(
-            modifier = Modifier
-                .align(Alignment.BottomEnd)
-                .navigationBarsPadding(),
-            navigationStack = screen3UiState.navigationStack
-        )
+        Text(modifier = Modifier.align(Alignment.Center), text = "go back!")
     }
 }

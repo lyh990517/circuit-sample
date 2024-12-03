@@ -35,12 +35,12 @@ fun Screen1(
             Button(onClick = {
                 screen1UiState.eventSink(Screen1Event.GoToScreen3)
             }) {
-                Text("go to screen3")
+                Text("PopResult Example")
             }
             Button(onClick = {
                 screen1UiState.eventSink(Screen1Event.GoToScreen4)
             }) {
-                Text("go to screen4")
+                Text("Nested Screen Example")
             }
         }
     }
