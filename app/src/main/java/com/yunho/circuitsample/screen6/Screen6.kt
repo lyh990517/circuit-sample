@@ -34,7 +34,7 @@ fun Screen6(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Bottom
         ) {
-            Text("Nested Screen in Screen6", fontSize = 10.sp)
+            Text("im screen6", fontSize = 10.sp)
             CircuitContent(
                 screen = screen6UiState.displayedScreen,
                 modifier = Modifier

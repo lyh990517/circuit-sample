@@ -35,7 +35,6 @@ fun Screen4(
 ) {
     Box(
         modifier = modifier
-            .background(Color.Green)
             .fillMaxSize()
             .navigationBarsPadding()
     ) {
@@ -45,10 +44,8 @@ fun Screen4(
                 .wrapContentSize(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text("Nested Screen in Screen1", fontSize = 10.sp)
             Column(
                 modifier = Modifier
-                    .background(Color.Cyan)
                     .padding(10.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
