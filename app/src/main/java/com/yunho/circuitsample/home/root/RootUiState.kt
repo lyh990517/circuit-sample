@@ -4,6 +4,6 @@ import com.slack.circuit.runtime.CircuitUiState
 import com.slack.circuit.runtime.screen.Screen
 
 data class RootUiState(
-    val currentScreen: Screen,
+    val displayedScreen: Screen,
     val eventSink: (RootEvent) -> Unit
 ) : CircuitUiState

@@ -31,6 +31,7 @@ fun RootScreen(
             RootScreen.Screen2(),
         )
     }
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
@@ -41,7 +42,7 @@ fun RootScreen(
             ) {
                 screens.forEach { screen ->
                     NavigationBarItem(
-                        selected = screen == rootUiState.currentScreen,
+                        selected = screen == rootUiState.displayedScreen,
                         onClick = {
                             rootUiState.eventSink(RootEvent.ChangeScreen(screen))
                         },
@@ -52,7 +53,7 @@ fun RootScreen(
         }
     ) { paddingValues ->
         CircuitContent(
-            screen = rootUiState.currentScreen,
+            screen = rootUiState.displayedScreen,
             modifier = modifier
                 .fillMaxSize()
                 .padding(paddingValues),

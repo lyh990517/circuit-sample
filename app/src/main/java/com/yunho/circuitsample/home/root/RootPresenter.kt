@@ -21,12 +21,12 @@ class RootPresenter @AssistedInject constructor(
 ) : Presenter<RootUiState> {
     @Composable
     override fun present(): RootUiState {
-        var currentScreen by remember { mutableStateOf<Screen>(RootScreen.Screen1()) }
+        var displayedScreen by remember { mutableStateOf<Screen>(RootScreen.Screen1()) }
 
-        return RootUiState(currentScreen = currentScreen) { event ->
+        return RootUiState(displayedScreen = displayedScreen) { event ->
             when (event) {
                 is RootEvent.NestedNavEvent -> navigator.onNavEvent(event.navEvent)
-                is RootEvent.ChangeScreen -> currentScreen = event.screen
+                is RootEvent.ChangeScreen -> displayedScreen = event.screen
             }
         }
     }
