@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CircuitSampleTheme {
                 val backStack =
-                    rememberSaveableBackStack(root = RootScreen)
+                    rememberSaveableBackStack(root = RootScreen())
                 val navigator = rememberCircuitNavigator(backStack)
 
                 CircuitCompositionLocals(circuit) {

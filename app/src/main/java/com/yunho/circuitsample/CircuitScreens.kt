@@ -4,7 +4,9 @@ import com.slack.circuit.runtime.screen.Screen
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data object RootScreen : Screen {
+data class RootScreen(
+    val name: String = "root"
+) : Screen {
 
     @Parcelize
     data class Screen1(
