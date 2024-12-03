@@ -11,15 +11,11 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.foundation.CircuitContent
-import com.slack.circuit.runtime.screen.Screen
 import com.yunho.circuitsample.RootScreen
 import dagger.hilt.android.components.ActivityRetainedComponent
 
@@ -35,8 +31,6 @@ fun RootScreen(
             RootScreen.Screen2(),
         )
     }
-    var currentScreen by remember { mutableStateOf<Screen>(RootScreen.Screen1()) }
-
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
@@ -47,8 +41,10 @@ fun RootScreen(
             ) {
                 screens.forEach { screen ->
                     NavigationBarItem(
-                        selected = screen == currentScreen,
-                        onClick = { currentScreen = screen },
+                        selected = screen == rootUiState.currentScreen,
+                        onClick = {
+                            rootUiState.eventSink(RootEvent.ChangeScreen(screen))
+                        },
                         icon = { Icon(imageVector = Icons.Default.PlayArrow, "") }
                     )
                 }
@@ -56,7 +52,7 @@ fun RootScreen(
         }
     ) { paddingValues ->
         CircuitContent(
-            screen = currentScreen,
+            screen = rootUiState.currentScreen,
             modifier = modifier
                 .fillMaxSize()
                 .padding(paddingValues),
