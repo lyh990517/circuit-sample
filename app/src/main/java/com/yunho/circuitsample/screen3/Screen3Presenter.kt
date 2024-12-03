@@ -20,7 +20,7 @@ class Screen3Presenter @AssistedInject constructor(
             navigationStack = navigator.peekBackStack()
         ) { event ->
             when (event) {
-                else -> {}
+                is Screen3Event.PopResult -> navigator.pop(result = Screen3.Result(event.data))
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.yunho.circuitsample.screen3
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -20,6 +21,10 @@ fun Screen3(
     screen3UiState: Screen3UiState,
     modifier: Modifier = Modifier
 ) {
+    BackHandler {
+        screen3UiState.eventSink(Screen3Event.PopResult("come back from screen3"))
+    }
+
     Box(modifier = modifier.fillMaxSize()) {
         NavigationStack(
             modifier = Modifier

@@ -31,6 +31,7 @@ fun Screen1(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Text("data: ${screen1UiState.data}")
             Button(onClick = {
                 screen1UiState.eventSink(Screen1Event.GoToScreen3)
             }) {

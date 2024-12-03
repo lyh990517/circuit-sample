@@ -1,5 +1,6 @@
 package com.yunho.circuitsample
 
+import com.slack.circuit.runtime.screen.PopResult
 import com.slack.circuit.runtime.screen.Screen
 import kotlinx.parcelize.Parcelize
 
@@ -20,8 +21,12 @@ data class Screen2(
 
 @Parcelize
 data class Screen3(
-    val name: String = "screen3",
-) : Screen
+    val name: String = "screen3"
+) : Screen {
+
+    @Parcelize
+    data class Result(val data: String) : PopResult
+}
 
 @Parcelize
 data class Screen4(
