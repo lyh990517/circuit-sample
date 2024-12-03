@@ -42,7 +42,7 @@ fun Screen4(
             .navigationBarsPadding()
     ) {
         NavigationStack(
-            modifier = Modifier.align(Alignment.BottomCenter),
+            modifier = Modifier.align(Alignment.BottomEnd),
             navigationStack = screen4UiState.navigationStack
         )
         Column(
@@ -50,6 +50,7 @@ fun Screen4(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Text("Nested Screen")
             CircuitContent(
                 screen = screen4UiState.displayedScreen,
                 modifier = Modifier

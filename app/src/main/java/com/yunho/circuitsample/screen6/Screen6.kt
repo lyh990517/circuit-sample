@@ -23,7 +23,7 @@ fun Screen6(
     Box(modifier = modifier.fillMaxSize()) {
         NavigationStack(
             modifier = Modifier
-                .align(Alignment.BottomEnd)
+                .align(Alignment.BottomCenter)
                 .navigationBarsPadding(),
             navigationStack = screen6UiState.navigationStack
         )
