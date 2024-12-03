@@ -5,7 +5,6 @@ import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import com.yunho.circuitsample.RootScreen
-import com.yunho.circuitsample.home.nested.screen1.NestedScreen1Presenter
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject

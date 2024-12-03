@@ -1,14 +1,11 @@
 package com.yunho.circuitsample.home.nested.screen1
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.sp
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.yunho.circuitsample.RootScreen
 import com.yunho.circuitsample.home.component.NavigationStack
@@ -23,9 +20,11 @@ fun NestedScreen1(
     nestedScreen1UiState: NestedScreen1UiState,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = modifier.fillMaxSize()) {
         NavigationStack(
-            modifier = Modifier.align(Alignment.TopEnd),
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .navigationBarsPadding(),
             navigationStack = nestedScreen1UiState.navigationStack
         )
     }

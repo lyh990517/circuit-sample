@@ -1,12 +1,10 @@
 package com.yunho.circuitsample.home.screen1
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import com.slack.circuit.codegen.annotations.CircuitInject
 import com.slack.circuit.runtime.Navigator
 import com.slack.circuit.runtime.presenter.Presenter
 import com.yunho.circuitsample.RootScreen
-import com.yunho.circuitsample.home.nested.screen1.NestedScreen1Event
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject

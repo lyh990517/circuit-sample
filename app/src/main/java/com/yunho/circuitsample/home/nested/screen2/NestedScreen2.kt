@@ -2,6 +2,7 @@ package com.yunho.circuitsample.home.nested.screen2
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,9 +20,11 @@ fun NestedScreen2(
     nestedScreen2UiState: NestedScreen2UiState,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(modifier = modifier.fillMaxSize()) {
         NavigationStack(
-            modifier = Modifier.align(Alignment.TopEnd),
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
+                .navigationBarsPadding(),
             navigationStack = nestedScreen2UiState.navigationStack
         )
     }
